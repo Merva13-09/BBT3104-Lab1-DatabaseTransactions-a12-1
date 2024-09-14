@@ -1,0 +1,7 @@
+# Custom Dictionary Words
+classicmodels
+genpkey
+orderdetails
+phpmyadmin
+privkey
+SAVEPOINT

@@ -1,0 +1,43 @@
+services:
+
+  mysql:
+    image: mysql:8.3.0
+    hostname: mysql-8.3.0-bbt3104
+    container_name: mysql-8.3.0-bbt3104
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 5trathm0re
+    volumes:
+      # To store the configuration file
+      - ./container-volumes/mysql/etc-mysql/my.cnf:/etc/mysql/my.cnf
+      # To store the data persistently
+      - ./container-volumes/mysql/var-lib-mysql:/var/lib/mysql
+      # To run the SQL scripts used to create the required databases
+      - ./container-volumes/mysql/init-scripts:/docker-entrypoint-initdb.d/
+    command: >
+      /bin/bash -c "
+      chmod 644 /etc/mysql/my.cnf &&
+      docker-entrypoint.sh mysqld
+      "
+  
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    hostname: phpmyadmin-5.2.1-bbt3104
+    container_name: phpmyadmin-5.2.1-bbt3104
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - MYSQL_ROOT_PASSWORD=5trathm0re
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=5trathm0re
+      - PMA_HOST=mysql-8.3.0-bbt3104
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=5trathm0re
+    volumes:
+      - ./container-volumes/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+    depends_on:
+      - mysql
