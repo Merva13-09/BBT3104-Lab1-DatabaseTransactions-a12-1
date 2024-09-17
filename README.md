@@ -56,3 +56,10 @@ BEGIN
   STOP;
 END
 ## Support for the Sales Departments' Report
+For enhancing support for the sales department’s reporting:
+
+Automated Error Notifications: Implement mechanisms to alert technical staff when a rollback occurs, helping quicker diagnosis and resolution.
+Performance Optimization: Analyze and optimize queries to speed up transaction times, especially important during high-volume periods.
+Data Integrity Checks: Regularly implement and update constraints and checks within the database to ensure the data integrity is maintained even before it hits transaction logic.
+Scalability Considerations: Ensure the database and application can handle increased load as sales grow or during peak times, potentially incorporating more robust database management practices or distributed databases.
+This setup seems robust for handling critical sales data, but continuous monitoring and optimization can enhance reliability and performance, directly supporting the sales department's needs.
