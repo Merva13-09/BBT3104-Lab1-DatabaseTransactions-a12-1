@@ -9,6 +9,7 @@
 
 ## Flowchart
 
+![flowchart](flowchart.png)
 ## Pseudocode
 
 ## Support for the Sales Departments' Report
