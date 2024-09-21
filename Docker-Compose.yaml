@@ -34,10 +34,10 @@ services:
       - MYSQL_USER=student
       - MYSQL_PASSWORD=5trathm0re
       - PMA_HOST=mysql-8.3.0-bbt3104
-      - PMA_PORT=3306
+      - PMA_PORT=
+      3306
       - PMA_USER=root
       - PMA_PASSWORD=5trathm0re
     volumes:
       - ./container-volumes/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
     depends_on:
-      - mysql
